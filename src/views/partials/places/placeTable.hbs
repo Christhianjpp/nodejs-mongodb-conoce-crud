@@ -1,0 +1,53 @@
+{{#if places}}
+  <table class="table table-boardered table-hover table-dark">
+    <thead>
+      <tr>
+        <th>N.</th>
+        <th>Titulo</th>
+        <th>Categoria</th>
+        <th>Descripción</th>
+
+        <th>Operations</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {{#each places}}
+        <tr>
+          <td>{{@index}}</td>
+          <td>{{title}} </td>
+          <td>{{category}} </td>
+          <td>{{description}} </td>
+          <td>
+            {{#if know}}
+              <a
+                href="/place/{{_id}}/toggleDone"
+                class="btn btn-success"
+              >Conocer</a>
+            {{else}}
+              <a
+                href="/place/{{_id}}/toggleDone"
+                class="btn btn-danger"
+              >Conocido</a>
+            {{/if}}
+
+            <a href="/place/{{_id}}/delite" class="btn btn-danger">Eliminar</a>
+            <a href="/place/{{_id}}/edit" class="btn btn-info">Editar</a>
+          </td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+
+  </table>
+
+{{else}}
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="text-center text-white">
+      <h1>No lugares</h1>
+      <img src="/icons/3699637.png" class="w-75" />
+    </div>
+  </div>
+
+{{/if}}
